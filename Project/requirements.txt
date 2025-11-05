@@ -1,0 +1,21 @@
+# Flask Web Framework
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Vector Database
+pinecone>=3.0.0
+
+# LangChain and Embeddings
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-ollama>=0.1.0
+
+# OpenAI API
+openai>=1.0.0
+
+# PDF Processing
+pypdf>=3.0.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
