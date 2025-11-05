@@ -73,14 +73,18 @@ http://localhost:5004
 4. **Answer Generation**: Retrieved chunks are sent to OpenAI for answer synthesis
 5. **Caching**: Results are cached using LRU cache to avoid redundant API calls
 
-## 📅 Publication Year Mapping
+## 📄 Document Indexing
 
-During document indexing:
-- PDFs are parsed using `PyPDFDirectoryLoader`
-- Extra metadata (author, creator, etc.) is dropped
-- Each PDF is mapped to its publication year
-- Year is stored as metadata with key `"year"` in Pinecone
-- Users can filter results by selecting a specific year
+The document indexing process (parsing PDFs, chunking, vectorizing, and storing in Pinecone) is implemented in `test.ipynb`. This notebook contains the complete pipeline for preparing documents for the RAG system:
+
+1. **PDF Parsing**: PDFs are loaded and parsed using `PyPDFDirectoryLoader`
+2. **Metadata Cleaning**: Extra metadata (author, creator, etc.) is dropped
+3. **Publication Year Mapping**: Each PDF is mapped to its publication year from a mapping file
+4. **Chunking**: Documents are split into chunks using `RecursiveCharacterTextSplitter` (chunk_size=2000, chunk_overlap=200)
+5. **Vectorization**: Text chunks are converted to embeddings using Ollama's bge-m3 model
+6. **Storage**: Vectors are stored in Pinecone with metadata including text, page number, and publication year
+
+**Note**: Run `test.ipynb` to index your PDF documents before using the RAG system. The indexed documents will be available for querying through the Flask application.
 
 ## ⚙️ Configuration
 
@@ -128,6 +132,7 @@ Get list of available publication years (2013-2025).
 ```
 Document_rag/
 ├── app_rag.py          # Main Flask application
+├── test.ipynb          # Jupyter notebook for PDF parsing, chunking, and indexing
 ├── index.html          # Frontend HTML
 ├── script.js           # Frontend JavaScript
 ├── style.css           # Frontend styles
