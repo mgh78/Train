@@ -2,6 +2,10 @@ hi babaaaaa
 boro berim bara edit
 chera neashun nemidiiiiiiiii
 eivakla dorost shode
+<<<<<<< HEAD
 tagghirate jadid 
 bazam taghir midam
 in khato tooye branch alaki ezafe mikonam !
+=======
+LetS SEEEEE
+>>>>>>> 3d4f4febfea3a3d72d1d5ee3fb4093d926fcc521
